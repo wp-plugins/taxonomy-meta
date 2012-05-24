@@ -4,7 +4,7 @@
 Plugin Name: Taxonomy Meta
 Plugin URI: http://www.deluxeblogtips.com/taxonomy-meta-script-for-wordpress
 Description: Add meta values to terms, mimic custom post fields
-Version: 1.1.1
+Version: 1.1.2
 Author: Rilwis
 Author URI: http://www.deluxeblogtips.com
 License: GPL2+
@@ -40,7 +40,7 @@ class RW_Taxonomy_Meta {
 	// Check field upload and add needed actions
 	function check_field_upload() {
 		if ($this->has_field('image') || $this->has_field('file')) {
-			add_action( 'wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
+			add_action( 'admin_enqueue_scripts', array(&$this, 'enqueue_scripts'));
 
 			add_action('admin_head-edit-tags.php', array(&$this, 'add_script_upload'));	// add scripts for handling add/delete images
 			add_action('wp_ajax_rw_delete_file', array(&$this, 'delete_file'));			// ajax delete files
